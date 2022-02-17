@@ -1,4 +1,21 @@
-// Create a basic React App where the user inputs the city name and after submitting, it fetches the data from an api.
+/*
+
+Create a React App where there is an HTML form. In this form the user inputs the city name and submits a button.
+After submitting, it fetches data from an api to retrieve the temperature and status of the weather in this city.
+
+Use this sample data for the api:
+Api url: https://www.anyweatherapi/city=CITY_NAME
+Response body:
+{
+  weather: {
+    temperature: 22,
+    status: 'Sunny'
+  }
+}
+
+The application doesn't need to be styled or validate user data or api errors.
+*/
+
 
 const Form = ({ onSubmit }) => {
   const [value, setValue] = useState('');
@@ -33,7 +50,7 @@ const WeatherApp = () => {
   const [weather, setWeather] = useState({});
 
   const handleFormSubmit = async (value) => {
-    const response = fetch(`https://whateverapi?city=${value}`);
+    const response = fetch(`https://www.anyweatherapi/city=${value}`);
     const json = await response.json();
     setCity(value);
     setWeather(json.data);
